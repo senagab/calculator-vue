@@ -2,7 +2,7 @@
 
 This template should help get you started developing with Vue 3 in Vite.
 
-![Screenshot Home](https://github.com/senagab/servidores-estaticos/blob/main/calc-vue.png)
+![Screenshot Home](https://github.com/senagab/servidores-estaticos/blob/main/calc-vue-min.png)
 
 ## Recommended IDE Setup
 
