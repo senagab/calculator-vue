@@ -5,16 +5,50 @@
   <header>
     <h2>calc-vue</h2>
   </header>
+  <!-- CONTAINER -->
   <div class="container">
+
+    <!-- DISPLAY -->
     <div class="display">
       <div class="display__last-operation">
         <span class="display__last-operation__text">
-          20 / 5
+          20 / 5 =
         </span>
       </div>
       <input type="text" class="display__text">
     </div>
+
+    <!-- TECLADO -->
+    <div class="keyboard">
+      <div class="keyboard__left">
+        <div class="keys">7</div>
+        <div class="keys">8</div>
+        <div class="keys">9</div>
+        <div class="keys">4</div>
+        <div class="keys">5</div>
+        <div class="keys">6</div>
+        <div class="keys">1</div>
+        <div class="keys">2</div>
+        <div class="keys">3</div>
+        <div class="keys">0</div>
+        <div class="keys" style="color: gray;">,</div>
+        <div class="keys" style="color: gray;">√</div>
+      </div>
+      <div class="keyboard__center">
+        <div class="keys">/</div>
+        <div class="keys">x</div>
+        <div class="keys">-</div>
+        <div class="keys">+</div>
+      </div>
+      <div class="keyboard__right">
+        <div class="keys">/</div>
+        <div class="keys">c</div>
+        <div class="keys">enter</div>
+        <!-- <div class="keys">enter</div> -->
+      </div>
+    </div>
   </div>
+    <!-- FIM DO CONTAINER -->
 </template>
 
 <style scoped>
@@ -34,6 +68,7 @@ header {
 
 .container {
   display: flex;
+  flex-direction: column;
   width: 80%;
   margin: 0 auto;
   height: 100%;
@@ -46,7 +81,7 @@ header {
   align-items: center;
   justify-content: center;
   height: 100px;
-  width: 100%;
+  width: auto;
   background-color: #232323;
   margin: 30px;
   border-left: solid 6px #E83D2A;
@@ -57,7 +92,7 @@ header {
     position: absolute;
     top: 10px;
     right: 15px;
-    color: white;
+    color: rgb(150, 150, 150);
   }
 
   .display__text {
@@ -67,16 +102,91 @@ header {
     /* border: solid 1px white; */
     border: none;
     position: absolute;
-    bottom: 10px;
+    bottom: 15px;
     right: 13px;
     font-size: 60px;
     color: white;
     text-align: right;
     font-weight: 500;
+    caret-color: transparent;
   }
 
   .display__text:focus {
     outline: none;
   }
 }
+
+.keyboard {
+  margin: -15px 30px 30px;
+  display: flex;
+  justify-content: space-around;
+
+  .keyboard__left {
+    display: grid;
+    grid-template-columns: 50px 50px 50px;
+    gap: 1rem;
+
+    .keys {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: black;
+      /* margin: 10px; */
+      /* width: 100%; */
+      font-size: 30px;
+      color: white;
+    }
+    
+    .keys:hover {
+      background-color: #232323;
+      cursor: pointer;
+    }
+  }
+
+  .keyboard__center {
+    display: grid;
+    grid-template-columns: 50px;
+    gap: 1rem;
+
+    .keys {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: black;
+      font-size: 30px;
+      color: rgb(138, 138, 138);
+    }
+    
+    .keys:hover {
+      background-color: #232323;
+      cursor: pointer;
+    }
+  }
+
+  .keyboard__right {
+    display: grid;
+    grid-template-columns: 50px;
+    grid-template-rows: 1fr 1fr 2fr;
+    gap: 1rem;
+    margin: 0 15px;
+
+    .keys {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: black;
+      padding: 30px;
+      font-size: 30px;
+      color: rgb(138, 138, 138);
+    }
+
+    .keys:hover {
+      background-color: #232323;
+      cursor: pointer;
+    }
+  }
+}
+
+
+
 </style>
