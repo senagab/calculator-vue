@@ -41,8 +41,8 @@
         <div class="keys">+</div>
       </div>
       <div class="keyboard__right">
-        <div class="keys">/</div>
-        <div class="keys">c</div>
+        <div class="keys">del</div>
+        <div class="keys">clear</div>
         <div class="keys">enter</div>
         <!-- <div class="keys">enter</div> -->
       </div>
@@ -80,7 +80,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100px;
+  height: 20vh;
   width: auto;
   background-color: #232323;
   margin: 30px;
@@ -123,16 +123,17 @@ header {
 
   .keyboard__left {
     display: grid;
-    grid-template-columns: 50px 50px 50px;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 1rem;
 
     .keys {
+      width: 10vh;
+      height: 10vh;
+      border: 1px solid #232323;
       display: flex;
       justify-content: center;
       align-items: center;
       background-color: black;
-      /* margin: 10px; */
-      /* width: 100%; */
       font-size: 30px;
       color: white;
     }
@@ -145,10 +146,12 @@ header {
 
   .keyboard__center {
     display: grid;
-    grid-template-columns: 50px;
+    grid-template-columns: 1fr;
     gap: 1rem;
 
     .keys {
+      width: 10vh;
+      height: 10vh;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -171,6 +174,8 @@ header {
     margin: 0 15px;
 
     .keys {
+      width: 7vh;
+      height: 10vh;
       display: flex;
       justify-content: center;
       align-items: center;
