@@ -15,7 +15,7 @@
           20 / 5 =
         </span>
       </div>
-      <input type="text" class="display__text">
+      <input maxlength="21" type="text" class="display__text">
     </div>
 
     <!-- TECLADO -->
@@ -41,9 +41,10 @@
         <div class="keys">+</div>
       </div>
       <div class="keyboard__right">
-        <div class="keys">del</div>
-        <div class="keys">clear</div>
-        <div class="keys" style="height: 21vh;">enter</div>
+        <div class="keys btn btn-backspace" style="border: none;"></div>
+        <div class="keys">C</div>
+        <div class="keys btn btn-equals" style="height: 21vh;">
+        </div>
         <!-- <div class="keys">enter</div> -->
       </div>
     </div>
@@ -96,7 +97,7 @@ header {
   }
 
   .display__text {
-    width: 400px;
+    width: 500px;
     height: 60px;
     background-color: transparent;
     /* border: solid 1px white; */
@@ -129,7 +130,7 @@ header {
     .keys {
       width: 10vh;
       height: 10vh;
-      border: 1px solid #232323;
+      /* border: 1px solid #232323; */
       display: flex;
       justify-content: center;
       align-items: center;
@@ -158,7 +159,7 @@ header {
       background-color: black;
       font-size: 30px;
       color: rgb(138, 138, 138);
-      border: 1px solid #232323;
+      /* border: 1px solid #232323; */
     }
     
     .keys:hover {
@@ -175,7 +176,7 @@ header {
     margin: 0 15px;
 
     .keys {
-      width: 7vh;
+      width: 10vh;
       height: 10vh;
       display: flex;
       justify-content: center;
@@ -184,7 +185,23 @@ header {
       padding: 30px;
       font-size: 30px;
       color: rgb(138, 138, 138);
-      border: 1px solid #232323;
+      /* border: 1px solid #232323; */
+    }
+
+    .btn-backspace {
+      background-image: url('./assets/images/backspace.svg');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      padding: 0 !important;
+    }
+
+    .btn-equals {
+      background-image: url('./assets/images/equals.png');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      padding: 0 !important;
     }
 
     .keys:hover {
