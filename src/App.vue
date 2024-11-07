@@ -43,7 +43,7 @@
       <div class="keyboard__right">
         <div class="keys">del</div>
         <div class="keys">clear</div>
-        <div class="keys">enter</div>
+        <div class="keys" style="height: 21vh;">enter</div>
         <!-- <div class="keys">enter</div> -->
       </div>
     </div>
@@ -69,7 +69,7 @@ header {
 .container {
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: 40%;
   margin: 0 auto;
   height: 100%;
   background-color: black;
@@ -90,21 +90,21 @@ header {
 
   .display__last-operation {
     position: absolute;
-    top: 10px;
+    top: 20px;
     right: 15px;
     color: rgb(150, 150, 150);
   }
 
   .display__text {
     width: 400px;
-    height: 50px;
+    height: 60px;
     background-color: transparent;
     /* border: solid 1px white; */
     border: none;
     position: absolute;
-    bottom: 15px;
+    bottom: 25px;
     right: 13px;
-    font-size: 60px;
+    font-size: 5em;
     color: white;
     text-align: right;
     font-weight: 500;
@@ -158,6 +158,7 @@ header {
       background-color: black;
       font-size: 30px;
       color: rgb(138, 138, 138);
+      border: 1px solid #232323;
     }
     
     .keys:hover {
@@ -183,6 +184,7 @@ header {
       padding: 30px;
       font-size: 30px;
       color: rgb(138, 138, 138);
+      border: 1px solid #232323;
     }
 
     .keys:hover {
