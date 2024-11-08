@@ -1,4 +1,82 @@
 <script setup>
+import { reactive } from 'vue';
+
+const estado = reactive({
+  valorCorrente: '',
+  numeroAnterior: null,
+  operador: null,
+  operadorClicado: false,
+});
+
+const backspace = () => {
+  estado.valorCorrente = estado.valorCorrente.slice(0, -1);
+};
+
+const raizQuadrada = () => {
+  estado.valorCorrente = `${Math.sqrt(parseFloat(estado.valorCorrente))}`;
+};
+
+const limpar = () => {
+  estado.valorCorrente = '';
+};
+
+const sinal = () => {
+  estado.valorCorrente = estado.valorCorrente.charAt(0) === '-'
+    ? estado.valorCorrente.slice(1)
+    : `-${estado.valorCorrente}`;
+};
+
+const porcentagem = () => {
+  estado.valorCorrente = `${parseFloat(estado.valorCorrente) / 100}`;
+};
+
+const juntarNumeros = (numero) => {
+  if (estado.operadorClicado) {
+    estado.valorCorrente = '';
+    estado.operadorClicado = false;
+  }
+  estado.valorCorrente = `${estado.valorCorrente}${numero}`;
+};
+
+const ponto = () => {
+  if (estado.valorCorrente.indexOf('.') === -1) {
+    juntarNumeros('.');
+  }
+};
+
+const setarValor = () => {
+  estado.numeroAnterior = estado.valorCorrente;
+  estado.operadorClicado = true;
+};
+
+const dividir = () => {
+  estado.operador = (num1, num2) => num1 / num2;
+  setarValor();
+};
+
+const multiplicar = () => {
+  estado.operador = (num1, num2) => num1 * num2;
+  setarValor();
+};
+
+const diminuir = () => {
+  estado.operador = (num1, num2) => num1 - num2;
+  setarValor();
+};
+
+const somar = () => {
+  estado.operador = (num1, num2) => num1 + num2;
+  setarValor();
+};
+
+const resultado = () => {
+  estado.valorCorrente = `${estado.operador(
+    parseFloat(estado.numeroAnterior),
+    parseFloat(estado.valorCorrente)
+  )}`;
+  estado.numeroAnterior = null;
+};
+
 </script>
 
 <template>
@@ -7,50 +85,48 @@
   </header>
   <!-- CONTAINER -->
   <div class="container">
-
     <!-- DISPLAY -->
     <div class="display">
       <div class="display__last-operation">
         <span class="display__last-operation__text">
-          20 / 5 =
+          {{ estado.numeroAnterior }} {{ operadorSimbolo }} =
         </span>
       </div>
-      <input maxlength="21" type="text" class="display__text">
+      <input maxlength="21" type="text" class="display__text" :value="estado.valorCorrente" readonly>
     </div>
 
     <!-- TECLADO -->
     <div class="keyboard">
       <div class="keyboard__left">
-        <div class="keys">7</div>
-        <div class="keys">8</div>
-        <div class="keys">9</div>
-        <div class="keys">4</div>
-        <div class="keys">5</div>
-        <div class="keys">6</div>
-        <div class="keys">1</div>
-        <div class="keys">2</div>
-        <div class="keys">3</div>
-        <div class="keys">0</div>
-        <div class="keys" style="color: gray;">,</div>
-        <div class="keys" style="color: gray;">√</div>
+        <div @click="juntarNumeros(7)" class="keys">7</div>
+        <div @click="juntarNumeros(8)" class="keys">8</div>
+        <div @click="juntarNumeros(9)" class="keys">9</div>
+        <div @click="juntarNumeros(4)" class="keys">4</div>
+        <div @click="juntarNumeros(5)" class="keys">5</div>
+        <div @click="juntarNumeros(6)" class="keys">6</div>
+        <div @click="juntarNumeros(1)" class="keys">1</div>
+        <div @click="juntarNumeros(2)" class="keys">2</div>
+        <div @click="juntarNumeros(3)" class="keys">3</div>
+        <div @click="juntarNumeros(0)" class="keys">0</div>
+        <div @click="ponto" class="keys" style="color: gray;">,</div>
+        <div @click="raizQuadrada" class="keys" style="color: gray;">√</div>
       </div>
       <div class="keyboard__center">
-        <div class="keys">/</div>
-        <div class="keys">x</div>
-        <div class="keys">-</div>
-        <div class="keys">+</div>
+        <div @click="dividir" class="keys">/</div>
+        <div @click="multiplicar" class="keys">x</div>
+        <div @click="diminuir" class="keys">-</div>
+        <div @click="somar" class="keys">+</div>
       </div>
       <div class="keyboard__right">
-        <div class="keys btn btn-backspace" style="border: none;"></div>
-        <div class="keys">C</div>
-        <div class="keys btn btn-equals" style="height: 21vh;">
-        </div>
-        <!-- <div class="keys">enter</div> -->
+        <div @click="backspace" class="keys btn btn-backspace" style="border: none;"></div>
+        <div @click="limpar" class="keys">C</div>
+        <div @click="resultado" class="keys btn btn-equals" style="height: 21vh;">=</div>
       </div>
     </div>
   </div>
-    <!-- FIM DO CONTAINER -->
+  <!-- FIM DO CONTAINER -->
 </template>
+
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
