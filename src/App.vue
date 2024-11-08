@@ -147,6 +147,7 @@ header {
   display: flex;
   flex-direction: column;
   width: 40%;
+  min-width: 35em;
   margin: 0 auto;
   height: 100%;
   background-color: black;
@@ -286,7 +287,4 @@ header {
     }
   }
 }
-
-
-
 </style>
