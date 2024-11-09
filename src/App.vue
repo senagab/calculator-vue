@@ -1,47 +1,38 @@
 <script setup>
-import { reactive } from 'vue';
+
+import { reactive, computed, onMounted, onUnmounted } from 'vue';
 
 const estado = reactive({
   valorCorrente: '',
   numeroAnterior: null,
-  operador: null,
+  operador: '',
   operadorClicado: false,
 });
 
-const backspace = () => {
-  estado.valorCorrente = estado.valorCorrente.slice(0, -1);
-};
-
-const raizQuadrada = () => {
-  estado.valorCorrente = `${Math.sqrt(parseFloat(estado.valorCorrente))}`;
-};
-
-const limpar = () => {
-  estado.valorCorrente = '';
-};
-
-const sinal = () => {
-  estado.valorCorrente = estado.valorCorrente.charAt(0) === '-'
-    ? estado.valorCorrente.slice(1)
-    : `-${estado.valorCorrente}`;
-};
-
-const porcentagem = () => {
-  estado.valorCorrente = `${parseFloat(estado.valorCorrente) / 100}`;
-};
+const operadorSimbolo = computed(() => estado.operador);
 
 const juntarNumeros = (numero) => {
   if (estado.operadorClicado) {
     estado.valorCorrente = '';
     estado.operadorClicado = false;
   }
-  estado.valorCorrente = `${estado.valorCorrente}${numero}`;
+  estado.valorCorrente += numero;
 };
 
 const ponto = () => {
-  if (estado.valorCorrente.indexOf('.') === -1) {
+  if (!estado.valorCorrente.includes('.')) {
     juntarNumeros('.');
   }
+};
+
+const limpar = () => {
+  estado.valorCorrente = '';
+  estado.numeroAnterior = null;
+  estado.operador = '';
+};
+
+const backspace = () => {
+  estado.valorCorrente = estado.valorCorrente.slice(0, -1);
 };
 
 const setarValor = () => {
@@ -50,33 +41,70 @@ const setarValor = () => {
 };
 
 const dividir = () => {
-  estado.operador = (num1, num2) => num1 / num2;
+  estado.operador = '/';
   setarValor();
 };
 
 const multiplicar = () => {
-  estado.operador = (num1, num2) => num1 * num2;
+  estado.operador = 'x';
   setarValor();
 };
 
 const diminuir = () => {
-  estado.operador = (num1, num2) => num1 - num2;
+  estado.operador = '-';
   setarValor();
 };
 
 const somar = () => {
-  estado.operador = (num1, num2) => num1 + num2;
+  estado.operador = '+';
   setarValor();
 };
 
 const resultado = () => {
-  estado.valorCorrente = `${estado.operador(
-    parseFloat(estado.numeroAnterior),
-    parseFloat(estado.valorCorrente)
-  )}`;
-  estado.numeroAnterior = null;
+  if (estado.numeroAnterior !== null && estado.operador) {
+    const num1 = parseFloat(estado.numeroAnterior);
+    const num2 = parseFloat(estado.valorCorrente);
+    switch (estado.operador) {
+      case '/': estado.valorCorrente = (num1 / num2).toString(); break;
+      case 'x': estado.valorCorrente = (num1 * num2).toString(); break;
+      case '-': estado.valorCorrente = (num1 - num2).toString(); break;
+      case '+': estado.valorCorrente = (num1 + num2).toString(); break;
+    }
+    estado.numeroAnterior = null;
+    estado.operador = '';
+  }
 };
 
+const handleKeyPress = (event) => {
+  const { key } = event;
+  if (!isNaN(key)) {
+    juntarNumeros(key);
+  } else if (key === '.') {
+    ponto();
+  } else if (key === 'Backspace') {
+    backspace();
+  } else if (key === 'Enter' || key === '=') {
+    resultado();
+  } else if (key === '+') {
+    somar();
+  } else if (key === '-') {
+    diminuir();
+  } else if (key === '*') {
+    multiplicar();
+  } else if (key === '/') {
+    dividir();
+  } else if (key === 'c' || key === 'C') {
+    limpar();
+  }
+};
+
+onMounted(() => {
+  window.addEventListener('keydown', handleKeyPress);
+});
+
+onUnmounted(() => {
+  window.removeEventListener('keydown', handleKeyPress);
+});
 </script>
 
 <template>
