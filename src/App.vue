@@ -93,7 +93,7 @@ const handleKeyPress = (event) => {
     multiplicar();
   } else if (key === '/') {
     dividir();
-  } else if (key === 'c' || key === 'C') {
+  } else if (key === 'escape' || key === 'Escape') {
     limpar();
   }
 };
@@ -148,7 +148,7 @@ onUnmounted(() => {
       <div class="keyboard__right">
         <div @click="backspace" class="keys btn btn-backspace" style="border: none;"></div>
         <div @click="limpar" class="keys">C</div>
-        <div @click="resultado" class="keys btn btn-equals" style="height: 21vh;">=</div>
+        <div @click="resultado" class="keys btn btn-equals" style="height: 21vh;"></div>
       </div>
     </div>
   </div>
