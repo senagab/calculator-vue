@@ -1,29 +1,31 @@
 <script setup>
-import { reactive, ref, onMounted, onUnmounted } from "vue";
+import { reactive, ref } from "vue";
 
 const estado = reactive({
-  valorCorrente: "",
-  ultimaOperacao: "",
-  operacaoFinalizada: false,
+  valorCorrente: "",      // Armazena o valor atual que está sendo digitado/exibido
+  ultimaOperacao: "",     // Armazena a última operação para exibição no display de histórico
+  operacaoFinalizada: false,  // Indica se uma operação foi finalizada (após o enter)
 });
 
-const historyDisplay = ref("");
+const historyDisplay = ref(""); // Display do histórico
 
-
+// Função para juntar números no display principal
 function juntarNumeros(num) {
   if (estado.operacaoFinalizada) {
-    estado.valorCorrente = "";
+    estado.valorCorrente = ""; // Limpa o valorCorrente se uma nova operação começou
     estado.operacaoFinalizada = false;
   }
   estado.valorCorrente += num;
 }
 
+// Função para adicionar ponto (decimal)
 function ponto() {
   if (!estado.valorCorrente.includes(".")) {
     estado.valorCorrente += ".";
   }
 }
 
+// Operações matemáticas
 function somar() {
   adicionarOperador("+");
 }
@@ -37,6 +39,7 @@ function dividir() {
   adicionarOperador("/");
 }
 
+// Função para adicionar um operador ao valorCorrente
 function adicionarOperador(operador) {
   if (estado.operacaoFinalizada) {
     estado.operacaoFinalizada = false;
@@ -46,61 +49,36 @@ function adicionarOperador(operador) {
   }
 }
 
+// Função para calcular o resultado
 function resultado() {
   try {
+    // Substitui "x" por "*" para a avaliação e calcula
     const expressao = estado.valorCorrente.replace(/x/g, "*");
     const resultado = eval(expressao);
 
+    // Atualiza o display de histórico e exibe o resultado no display principal
     historyDisplay.value = `${estado.valorCorrente}=`;
     estado.valorCorrente = resultado.toString();
 
+    // Marca a operação como finalizada para que a próxima entrada comece uma nova operação
     estado.operacaoFinalizada = true;
   } catch (error) {
     estado.valorCorrente = "Erro";
   }
 }
 
+// Função de backspace
 function backspace() {
   if (estado.operacaoFinalizada) return;
   estado.valorCorrente = estado.valorCorrente.slice(0, -1);
 }
 
+// Função de limpar
 function limpar() {
   estado.valorCorrente = "";
   historyDisplay.value = "";
   estado.operacaoFinalizada = false;
 }
-
-const handleKeyPress = (event) => {
-  const { key } = event;
-  if (!isNaN(key)) {
-    juntarNumeros(key);
-  } else if (key === '.') {
-    ponto();
-  } else if (key === 'Backspace') {
-    backspace();
-  } else if (key === 'Enter' || key === '=') {
-    resultado();
-  } else if (key === '+') {
-    somar();
-  } else if (key === '-') {
-    diminuir();
-  } else if (key === '*') {
-    multiplicar();
-  } else if (key === '/') {
-    dividir();
-  } else if (key === 'Escape') {
-    limpar();
-  }
-};
-
-onMounted(() => {
-  window.addEventListener('keydown', handleKeyPress);
-});
-
-onUnmounted(() => {
-  window.removeEventListener('keydown', handleKeyPress);
-});
 </script>
 
 <template>
@@ -118,6 +96,7 @@ onUnmounted(() => {
         </span>
       </div>
       <!-- Display Principal -->
+      <!-- <input maxlength="21" type="text" class="display__text" :value="estado.valorCorrente" readonly> -->
       <input maxlength="21" type="text" class="display__text" :value="estado.valorCorrente" readonly>
     </div>
 
@@ -233,6 +212,7 @@ header {
     .keys {
       width: 10vh;
       height: 10vh;
+      /* border: 1px solid #232323; */
       display: flex;
       justify-content: center;
       align-items: center;
@@ -261,6 +241,7 @@ header {
       background-color: black;
       font-size: 30px;
       color: rgb(138, 138, 138);
+      /* border: 1px solid #232323; */
     }
     
     .keys:hover {
@@ -286,6 +267,7 @@ header {
       padding: 30px;
       font-size: 30px;
       color: rgb(138, 138, 138);
+      /* border: 1px solid #232323; */
     }
 
     .btn-backspace {
