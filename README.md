@@ -2,6 +2,10 @@
 
 This template should help get you started developing with Vue 3 in Vite.
 
+<p align="left">
+    <img src="https://img.shields.io/badge/vite-v5.4.10-black" alt="vite"></img>
+</p>
+
 ![Screenshot Home](https://github.com/senagab/servidores-estaticos/blob/main/calc.png)
 
 ## Recommended IDE Setup
