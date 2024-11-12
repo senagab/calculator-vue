@@ -1,11 +1,12 @@
 # calc-vue
 
-A calculator web application built with Vue.js, designed for real-time calculations with a sleek, modern interface. This calculator performs basic arithmetic operations and keeps a history of recent calculations, providing both keyboard and clickable interface support.
-
 <p align="left">
     <img src="https://img.shields.io/badge/vue-v3.5.12-359369?logo=vue.js&labelColor=white" alt="Vue version">
     <img src="https://img.shields.io/badge/vite-v5.4.10-6568FF?logo=vite&labelColor=white" alt="Vite version">
 </p>
+
+A calculator web application built with Vue.js, designed for real-time calculations with a sleek, modern interface. This calculator performs basic arithmetic operations and keeps a history of recent calculations, providing both keyboard and clickable interface support.
+
 
 ![Screenshot Home](https://github.com/senagab/servidores-estaticos/blob/main/calc.png)
 
