@@ -28,7 +28,7 @@ A calculator web application built with Vue.js, designed for real-time calculati
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/yourusername/calc-vue.git
+    git clone https://github.com/senagab/calculator-vue.git
     cd calc-vue
     ```
 2. Install dependencies:
