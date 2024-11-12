@@ -178,6 +178,7 @@ header {
   height: 100%;
   background-color: black;
   border-radius: 5px;
+  filter: drop-shadow(3px 3px 0.75rem rgba(255, 255, 255, 0.1));
 }
 
 .display {
