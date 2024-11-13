@@ -19,7 +19,10 @@ function juntarNumeros(num) {
 }
 
 function ponto() {
-  if (!estado.valorCorrente.includes(".")) {
+  const partes = estado.valorCorrente.split(/[\+\-\x\/]/);
+  const ultimoNumero = partes[partes.length - 1];
+
+  if (!ultimoNumero.includes(".")) {
     estado.valorCorrente += ".";
   }
 }
