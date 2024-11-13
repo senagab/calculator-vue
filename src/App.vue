@@ -40,11 +40,24 @@ function dividir() {
   adicionarOperador("/");
 }
 
+// function adicionarOperador(operador) {
+//   if (estado.operacaoFinalizada) {
+//     estado.operacaoFinalizada = false;
+//   }
+//   if (!["+", "-", "x", "/"].includes(estado.valorCorrente.slice(-1))) {
+//     estado.valorCorrente += operador;
+//   }
+// }
+
 function adicionarOperador(operador) {
   if (estado.operacaoFinalizada) {
     estado.operacaoFinalizada = false;
   }
-  if (!["+", "-", "x", "/"].includes(estado.valorCorrente.slice(-1))) {
+  const ultimoCaractere = estado.valorCorrente.slice(-1);
+  
+  if (["+", "-", "x", "/"].includes(ultimoCaractere)) {
+    estado.valorCorrente = estado.valorCorrente.slice(0, -1) + operador;
+  } else {
     estado.valorCorrente += operador;
   }
 }
