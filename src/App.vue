@@ -80,6 +80,23 @@ function limpar() {
 
 const handleKeyPress = (event) => {
   const { key } = event;
+
+  const keyMap = {
+    '0': '0', '1': '1', '2': '2', '3': '3', '4': '4',
+    '5': '5', '6': '6', '7': '7', '8': '8', '9': '9',
+    '+': 'somar', '-': 'diminuir', '*': 'multiplicar', '/': 'dividir',
+    'Enter': 'resultado', '=': 'resultado', 'Backspace': 'backspace', '.': 'ponto',
+    'Escape': 'limpar'
+  };
+
+  const buttonId = keyMap[key];
+  const buttonElement = document.querySelector(`[data-key="${buttonId}"]`);
+
+  if (buttonElement) {
+    buttonElement.classList.add('active');
+    setTimeout(() => buttonElement.classList.remove('active'), 100); // Remove após 100ms
+  }
+
   if (!isNaN(key)) {
     juntarNumeros(key);
   } else if (key === '.') {
@@ -131,29 +148,29 @@ onUnmounted(() => {
     <!-- TECLADO -->
     <div class="keyboard">
       <div class="keyboard__left">
-        <div @click="juntarNumeros(7)" class="keys">7</div>
-        <div @click="juntarNumeros(8)" class="keys">8</div>
-        <div @click="juntarNumeros(9)" class="keys">9</div>
-        <div @click="juntarNumeros(4)" class="keys">4</div>
-        <div @click="juntarNumeros(5)" class="keys">5</div>
-        <div @click="juntarNumeros(6)" class="keys">6</div>
-        <div @click="juntarNumeros(1)" class="keys">1</div>
-        <div @click="juntarNumeros(2)" class="keys">2</div>
-        <div @click="juntarNumeros(3)" class="keys">3</div>
-        <div @click="juntarNumeros(0)" class="keys">0</div>
+        <div @click="juntarNumeros(7)" class="keys" data-key="7">7</div>
+        <div @click="juntarNumeros(8)" class="keys" data-key="8">8</div>
+        <div @click="juntarNumeros(9)" class="keys" data-key="9">9</div>
+        <div @click="juntarNumeros(4)" class="keys" data-key="4">4</div>
+        <div @click="juntarNumeros(5)" class="keys" data-key="5">5</div>
+        <div @click="juntarNumeros(6)" class="keys" data-key="6">6</div>
+        <div @click="juntarNumeros(1)" class="keys" data-key="1">1</div>
+        <div @click="juntarNumeros(2)" class="keys" data-key="2">2</div>
+        <div @click="juntarNumeros(3)" class="keys" data-key="3">3</div>
+        <div @click="juntarNumeros(0)" class="keys" data-key="0">0</div>
         <div @click="ponto" class="keys" style="color: gray;">,</div>
         <div @click="raizQuadrada" class="keys" style="color: gray;">√</div>
       </div>
       <div class="keyboard__center">
-        <div @click="dividir" class="keys keys--div">/</div>
-        <div @click="multiplicar" class="keys keys--mult">x</div>
-        <div @click="diminuir" class="keys keys--sub">-</div>
-        <div @click="somar" class="keys keys--sum">+</div>
+        <div @click="dividir" class="keys keys--div" data-key="dividir">/</div>
+        <div @click="multiplicar" class="keys keys--mult" data-key="multiplicar">x</div>
+        <div @click="diminuir" class="keys keys--sub" data-key="diminuir">-</div>
+        <div @click="somar" class="keys keys--sum" data-key="somar">+</div>
       </div>
       <div class="keyboard__right">
-        <div @click="backspace" class="keys btn btn-backspace" style="border: none;"></div>
-        <div @click="limpar" class="keys">C</div>
-        <div @click="resultado" class="keys btn btn-equals" style="height: 21vh;"></div>
+        <div @click="backspace" class="keys btn btn-backspace" data-key="backspace" style="border: none;"></div>
+        <div @click="limpar" class="keys" data-key="limpar" >C</div>
+        <div @click="resultado" class="keys btn btn-equals" data-key="resultado" style="height: 21vh;"></div>
       </div>
     </div>
   </div>
@@ -261,6 +278,13 @@ header {
       font-weight: bold;
       font-size: 25px;
     }
+
+    .keys.active {
+      background-color: #2b2b2b;
+      color: rgb(255, 255, 255);
+      font-weight: bold;
+      font-size: 25px;
+    }
   }
 
   .keyboard__center {
@@ -289,7 +313,14 @@ header {
       background-color: #2b2b2b;
       color: rgb(255, 255, 255);
       font-weight: bold;
-      font-size: 15px;
+      font-size: 20px;
+    }
+
+    .keys.active {
+      background-color: #2b2b2b;
+      color: rgb(255, 255, 255);
+      font-weight: bold;
+      font-size: 25px;
     }
   }
 
@@ -331,6 +362,20 @@ header {
     .keys:hover {
       background-color: #232323;
       cursor: pointer;
+    }
+
+    .keys:active {
+      background-color: #2b2b2b;
+      color: rgb(255, 255, 255);
+      font-weight: bold;
+      font-size: 25px;
+    }
+
+    .keys.active {
+      background-color: #2b2b2b;
+      color: rgb(255, 255, 255);
+      font-weight: bold;
+      font-size: 25px;
     }
   }
 }
