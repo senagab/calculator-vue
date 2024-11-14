@@ -145,10 +145,10 @@ onUnmounted(() => {
         <div @click="raizQuadrada" class="keys" style="color: gray;">√</div>
       </div>
       <div class="keyboard__center">
-        <div @click="dividir" class="keys">/</div>
-        <div @click="multiplicar" class="keys">x</div>
-        <div @click="diminuir" class="keys">-</div>
-        <div @click="somar" class="keys">+</div>
+        <div @click="dividir" class="keys keys--div">/</div>
+        <div @click="multiplicar" class="keys keys--mult">x</div>
+        <div @click="diminuir" class="keys keys--sub">-</div>
+        <div @click="somar" class="keys keys--sum">+</div>
       </div>
       <div class="keyboard__right">
         <div @click="backspace" class="keys btn btn-backspace" style="border: none;"></div>
@@ -246,12 +246,20 @@ header {
       align-items: center;
       background-color: black;
       font-size: 30px;
-      color: white;
+      color: rgb(128, 128, 128);
     }
     
     .keys:hover {
-      background-color: #232323;
+      background-color: #1a1a1a;
+      color: rgb(206, 206, 206);
       cursor: pointer;
+    }
+
+    .keys:active {
+      background-color: #2b2b2b;
+      color: rgb(255, 255, 255);
+      font-weight: bold;
+      font-size: 25px;
     }
   }
 
@@ -272,8 +280,16 @@ header {
     }
     
     .keys:hover {
-      background-color: #232323;
+      background-color: #1a1a1a;
+      color: rgb(206, 206, 206);
       cursor: pointer;
+    }
+
+    .keys:active {
+      background-color: #2b2b2b;
+      color: rgb(255, 255, 255);
+      font-weight: bold;
+      font-size: 15px;
     }
   }
 
