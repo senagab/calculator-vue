@@ -9,7 +9,6 @@ const estado = reactive({
 
 const historyDisplay = ref("");
 
-
 function juntarNumeros(num) {
   if (estado.operacaoFinalizada) {
     estado.valorCorrente = "";
@@ -22,8 +21,8 @@ function ponto() {
   const partes = estado.valorCorrente.split(/[\+\-\x\/]/);
   const ultimoNumero = partes[partes.length - 1];
 
-  if (!ultimoNumero.includes(".")) {
-    estado.valorCorrente += ".";
+  if (!ultimoNumero.includes(",")) {
+    estado.valorCorrente += ",";
   }
 }
 
@@ -45,7 +44,7 @@ function adicionarOperador(operador) {
     estado.operacaoFinalizada = false;
   }
   const ultimoCaractere = estado.valorCorrente.slice(-1);
-  
+
   if (["+", "-", "x", "/"].includes(ultimoCaractere)) {
     estado.valorCorrente = estado.valorCorrente.slice(0, -1) + operador;
   } else {
@@ -55,11 +54,12 @@ function adicionarOperador(operador) {
 
 function resultado() {
   try {
-    const expressao = estado.valorCorrente.replace(/x/g, "*");
+    const expressao = estado.valorCorrente.replace(/,/g, ".").replace(/x/g, "*");
     const resultado = eval(expressao);
 
     historyDisplay.value = `${estado.valorCorrente}=`;
-    estado.valorCorrente = resultado.toString();
+
+    estado.valorCorrente = resultado.toString().replace(/\./g, ",");
 
     estado.operacaoFinalizada = true;
   } catch (error) {
@@ -85,7 +85,7 @@ const handleKeyPress = (event) => {
     '0': '0', '1': '1', '2': '2', '3': '3', '4': '4',
     '5': '5', '6': '6', '7': '7', '8': '8', '9': '9',
     '+': 'somar', '-': 'diminuir', '*': 'multiplicar', '/': 'dividir',
-    'Enter': 'resultado', '=': 'resultado', 'Backspace': 'backspace', '.': 'ponto',
+    'Enter': 'resultado', '=': 'resultado', 'Backspace': 'backspace', ',': 'ponto',
     'Escape': 'limpar'
   };
 
@@ -93,39 +93,40 @@ const handleKeyPress = (event) => {
   const buttonElement = document.querySelector(`[data-key="${buttonId}"]`);
 
   if (buttonElement) {
-    buttonElement.classList.add('active');
-    setTimeout(() => buttonElement.classList.remove('active'), 100); // Remove após 100ms
+    buttonElement.classList.add("active");
+    setTimeout(() => buttonElement.classList.remove("active"), 100);
   }
 
   if (!isNaN(key)) {
     juntarNumeros(key);
-  } else if (key === '.') {
+  } else if (key === ",") {
     ponto();
-  } else if (key === 'Backspace') {
+  } else if (key === "Backspace") {
     backspace();
-  } else if (key === 'Enter' || key === '=') {
+  } else if (key === "Enter" || key === "=") {
     resultado();
-  } else if (key === '+') {
+  } else if (key === "+") {
     somar();
-  } else if (key === '-') {
+  } else if (key === "-") {
     diminuir();
-  } else if (key === '*') {
+  } else if (key === "*") {
     multiplicar();
-  } else if (key === '/') {
+  } else if (key === "/") {
     dividir();
-  } else if (key === 'Escape') {
+  } else if (key === "Escape") {
     limpar();
   }
 };
 
 onMounted(() => {
-  window.addEventListener('keydown', handleKeyPress);
+  window.addEventListener("keydown", handleKeyPress);
 });
 
 onUnmounted(() => {
-  window.removeEventListener('keydown', handleKeyPress);
+  window.removeEventListener("keydown", handleKeyPress);
 });
 </script>
+
 
 <template>
   <header>
