@@ -5,9 +5,38 @@ const estado = reactive({
   valorCorrente: "",
   ultimaOperacao: "",
   operacaoFinalizada: false,
+  soundIndex: 0,
+
 });
 
 const historyDisplay = ref("");
+
+const sons = [
+  "./src/assets/sounds/1st - E.mp3",
+  "./src/assets/sounds/2nd - A.mp3",
+  "./src/assets/sounds/3rd - E.mp3",
+  "./src/assets/sounds/4th - B.mp3",
+  "./src/assets/sounds/5th - E.mp3",
+  "./src/assets/sounds/6th - G.mp3",
+  "./src/assets/sounds/7th - A.mp3",
+  "./src/assets/sounds/8th - E.mp3",
+  "./src/assets/sounds/9th - C2.mp3",
+  "./src/assets/sounds/10th - E.mp3",
+  "./src/assets/sounds/11th - D2.mp3",
+  "./src/assets/sounds/12th - E.mp3",
+  "./src/assets/sounds/13th - B.mp3",
+  "./src/assets/sounds/14th - C2.mp3",
+];
+
+// Função para reproduzir o próximo som
+function tocarSom() {
+  const somAtual = sons[estado.soundIndex];
+  const audio = new Audio(somAtual);
+  audio.play();
+
+  // Avança para o próximo som ou reinicia o loop
+  estado.soundIndex = (estado.soundIndex + 1) % sons.length;
+}
 
 function juntarNumeros(num) {
   if (estado.operacaoFinalizada) {
@@ -76,6 +105,10 @@ function limpar() {
   estado.valorCorrente = "";
   historyDisplay.value = "";
   estado.operacaoFinalizada = false;
+
+  estado.soundIndex = 0;
+
+  // tocarSom();
 }
 
 const handleKeyPress = (event) => {
@@ -116,6 +149,8 @@ const handleKeyPress = (event) => {
   } else if (key === "Escape") {
     limpar();
   }
+
+  tocarSom(); 
 };
 
 onMounted(() => {
