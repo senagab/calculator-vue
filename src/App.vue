@@ -44,6 +44,7 @@ function juntarNumeros(num) {
     estado.operacaoFinalizada = false;
   }
   estado.valorCorrente += num;
+  tocarSom();
 }
 
 function ponto() {
@@ -53,6 +54,8 @@ function ponto() {
   if (!ultimoNumero.includes(",")) {
     estado.valorCorrente += ",";
   }
+
+  tocarSom();
 }
 
 function somar() {
@@ -150,7 +153,7 @@ const handleKeyPress = (event) => {
     limpar();
   }
 
-  tocarSom(); 
+  // tocarSom();
 };
 
 onMounted(() => {
