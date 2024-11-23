@@ -1,5 +1,8 @@
 <script setup>
 import { reactive, ref, onMounted, onUnmounted } from "vue";
+import Header from './components/Header.vue'
+import Display from './components/Display.vue'
+import Keyboard from './components/Keyboard.vue'
 
 const estado = reactive({
   valorCorrente: "",
@@ -166,51 +169,14 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <header>
-    <h2>calc-vue</h2>
-  </header>
+  <Header />
   <!-- CONTAINER -->
   <div class="container">
     <!-- DISPLAY -->
-    <div class="display">
-      <!-- Display de Histórico -->
-      <div class="display__last-operation">
-        <span class="display__last-operation__text">
-          {{ historyDisplay }}
-        </span>
-      </div>
-      <!-- Display Principal -->
-      <input maxlength="21" type="text" class="display__text" :value="estado.valorCorrente" readonly>
-    </div>
+    <Display />
 
     <!-- TECLADO -->
-    <div class="keyboard">
-      <div class="keyboard__left">
-        <div @click="juntarNumeros(7)" class="keys" data-key="7">7</div>
-        <div @click="juntarNumeros(8)" class="keys" data-key="8">8</div>
-        <div @click="juntarNumeros(9)" class="keys" data-key="9">9</div>
-        <div @click="juntarNumeros(4)" class="keys" data-key="4">4</div>
-        <div @click="juntarNumeros(5)" class="keys" data-key="5">5</div>
-        <div @click="juntarNumeros(6)" class="keys" data-key="6">6</div>
-        <div @click="juntarNumeros(1)" class="keys" data-key="1">1</div>
-        <div @click="juntarNumeros(2)" class="keys" data-key="2">2</div>
-        <div @click="juntarNumeros(3)" class="keys" data-key="3">3</div>
-        <div @click="juntarNumeros(0)" class="keys" data-key="0">0</div>
-        <div @click="ponto" class="keys" style="color: gray;">,</div>
-        <div @click="raizQuadrada" class="keys" style="color: gray;">√</div>
-      </div>
-      <div class="keyboard__center">
-        <div @click="dividir" class="keys keys--div" data-key="dividir">/</div>
-        <div @click="multiplicar" class="keys keys--mult" data-key="multiplicar">x</div>
-        <div @click="diminuir" class="keys keys--sub" data-key="diminuir">-</div>
-        <div @click="somar" class="keys keys--sum" data-key="somar">+</div>
-      </div>
-      <div class="keyboard__right">
-        <div @click="backspace" class="keys btn btn-backspace" data-key="backspace" style="border: none;"></div>
-        <div @click="limpar" class="keys" data-key="limpar" >C</div>
-        <div @click="resultado" class="keys btn btn-equals" data-key="resultado" style="height: 21vh;"></div>
-      </div>
-    </div>
+    <Keyboard />
   </div>
   <!-- FIM DO CONTAINER -->
 </template>
