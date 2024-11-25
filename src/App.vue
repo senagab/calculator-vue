@@ -173,10 +173,20 @@ onUnmounted(() => {
   <!-- CONTAINER -->
   <div class="container">
     <!-- DISPLAY -->
-    <Display />
+    <Display :valor="estado.valorCorrente" :historico="historyDisplay" />
 
     <!-- TECLADO -->
-    <Keyboard />
+    <Keyboard
+      :juntarNumeros="juntarNumeros"
+      :ponto="ponto"
+      :somar="somar"
+      :diminuir="diminuir"
+      :multiplicar="multiplicar"
+      :dividir="dividir"
+      :backspace="backspace"
+      :limpar="limpar"
+      :resultado="resultado"
+    />
   </div>
   <!-- FIM DO CONTAINER -->
 </template>
