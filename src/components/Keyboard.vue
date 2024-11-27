@@ -44,3 +44,165 @@ const props = defineProps({
         </div>
     </div>
 </template>
+<style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+header {
+    color: #bdbdbd;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    min-width: 35em;
+    margin: 0 auto;
+    height: 100%;
+    background-color: black;
+    border-radius: 5px;
+    filter: drop-shadow(3px 3px 0.75rem rgba(255, 255, 255, 0.1));
+}
+
+.keyboard {
+    margin: -15px 30px 30px;
+    display: flex;
+    justify-content: space-around;
+
+    .keyboard__left {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 1rem;
+
+        .keys {
+            width: 10vh;
+            height: 10vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+            font-size: 30px;
+            color: rgb(128, 128, 128);
+        }
+
+        .keys:hover {
+            background-color: #1a1a1a;
+            color: rgb(206, 206, 206);
+            cursor: pointer;
+        }
+
+        .keys:active {
+            background-color: #2b2b2b;
+            color: rgb(255, 255, 255);
+            font-weight: bold;
+            font-size: 25px;
+        }
+
+        .keys.active {
+            background-color: #2b2b2b;
+            color: rgb(255, 255, 255);
+            font-weight: bold;
+            font-size: 25px;
+        }
+    }
+
+    .keyboard__center {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+
+        .keys {
+            width: 10vh;
+            height: 10vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+            font-size: 30px;
+            color: rgb(138, 138, 138);
+        }
+
+        .keys:hover {
+            background-color: #1a1a1a;
+            color: rgb(206, 206, 206);
+            cursor: pointer;
+        }
+
+        .keys:active {
+            background-color: #2b2b2b;
+            color: rgb(255, 255, 255);
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .keys.active {
+            background-color: #2b2b2b;
+            color: rgb(255, 255, 255);
+            font-weight: bold;
+            font-size: 25px;
+        }
+    }
+
+    .keyboard__right {
+        display: grid;
+        grid-template-columns: 50px;
+        grid-template-rows: 1fr 1fr 2fr;
+        gap: 1rem;
+        margin: 0 15px;
+
+        .keys {
+            width: 10vh;
+            height: 10vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+            padding: 30px;
+            font-size: 30px;
+            color: rgb(138, 138, 138);
+        }
+
+        .btn-backspace {
+            background-image: url('../assets/images/backspace.svg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            padding: 0 !important;
+        }
+
+        .btn-equals {
+            background-image: url('../assets/images/equals.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding: 0 !important;
+        }
+
+        .keys:hover {
+            background-color: #232323;
+            cursor: pointer;
+        }
+
+        .keys:active {
+            background-color: #2b2b2b;
+            color: rgb(255, 255, 255);
+            font-weight: bold;
+            font-size: 25px;
+        }
+
+        .keys.active {
+            background-color: #2b2b2b;
+            color: rgb(255, 255, 255);
+            font-weight: bold;
+            font-size: 25px;
+        }
+    }
+}
+</style>
