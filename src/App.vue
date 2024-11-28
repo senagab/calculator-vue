@@ -4,6 +4,14 @@ import Header from './components/Header.vue'
 import Display from './components/Display.vue'
 import Keyboard from './components/Keyboard.vue'
 
+function bgColor() {
+  addEventListener("DOMContentLoaded", (event) => {
+    document.body.style.backgroundColor = "#1a1a1a";
+  });
+}
+
+bgColor();
+
 const estado = reactive({
   valorCorrente: "",
   ultimaOperacao: "",
@@ -157,15 +165,15 @@ onUnmounted(() => {
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 
+body, html {
+  background-color: #1a1a1a !important;
+}
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   font-family: 'Inter', sans-serif;
-}
-
-body {
-  background-color: black;
 }
 
 header {
