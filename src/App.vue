@@ -135,7 +135,7 @@ onUnmounted(() => {
   <!-- CONTAINER -->
   <div class="container">
     <!-- DISPLAY -->
-    <Display :valor="estado.valorCorrente" :historico="historyDisplay" />
+    <Display/>
 
     <!-- TECLADO -->
     <Keyboard
