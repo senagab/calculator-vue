@@ -45,31 +45,6 @@ const props = defineProps({
     </div>
 </template>
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-
-
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
-}
-
-header {
-    color: #bdbdbd;
-}
-
-.container {
-    display: flex;
-    flex-direction: column;
-    width: 40%;
-    min-width: 35em;
-    margin: 0 auto;
-    height: 100%;
-    background-color: black;
-    border-radius: 5px;
-    filter: drop-shadow(3px 3px 0.75rem rgba(255, 255, 255, 0.1));
-}
 
 .keyboard {
     margin: -15px 30px 30px;
