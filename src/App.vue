@@ -134,11 +134,9 @@ onUnmounted(() => {
   <Header />
   <!-- CONTAINER -->
   <div class="container">
-    <!-- DISPLAY -->
-    <Display :valor="estado.valorCorrente" :historico="historyDisplay" />
 
-    <!-- TECLADO -->
-    <Keyboard
+    <Display :estado="estado" :historyDisplay="historyDisplay" />
+    <Keyboard 
       :juntarNumeros="juntarNumeros"
       :ponto="ponto"
       :somar="somar"
@@ -155,6 +153,7 @@ onUnmounted(() => {
 
 
 <style scoped>
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 
@@ -163,6 +162,10 @@ onUnmounted(() => {
   margin: 0;
   box-sizing: border-box;
   font-family: 'Inter', sans-serif;
+}
+
+body {
+  background-color: black;
 }
 
 header {
@@ -180,6 +183,5 @@ header {
   border-radius: 5px;
   filter: drop-shadow(3px 3px 0.75rem rgba(255, 255, 255, 0.1));
 }
-
 
 </style>

@@ -1,5 +1,8 @@
 <script setup>
 
+// import { defineProps } from 'vue';
+
+// Definindo as funções recebidas como props
 const props = defineProps({
     juntarNumeros: Function,
     ponto: Function,
@@ -45,7 +48,6 @@ const props = defineProps({
     </div>
 </template>
 <style scoped>
-
 .keyboard {
     margin: -15px 30px 30px;
     display: flex;
