@@ -43,24 +43,25 @@ const props = defineProps({
             <div @click="props.backspace" class="keys btn btn-backspace" data-key="backspace" style="border: none;">
             </div>
             <div @click="props.limpar" class="keys" data-key="limpar">C</div>
-            <div @click="props.resultado" class="keys btn btn-equals" data-key="resultado" style="height: 21vh;"></div>
+            <!-- <div @click="props.resultado" class="keys btn btn-equals" data-key="resultado" style="height: 21vh;"></div> -->
+            <div class="keys btn btn-equals">=</div>
         </div>
     </div>
 </template>
 <style scoped>
 .keyboard {
-    margin: -15px 30px 30px;
+    margin: 30px 30px;
     display: flex;
     justify-content: space-around;
 
     .keyboard__left {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
-        gap: 1rem;
+        column-gap: 1rem;
 
         .keys {
-            width: 10vh;
-            height: 10vh;
+            width: 15vh;
+            height: 15vh;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -96,8 +97,8 @@ const props = defineProps({
         gap: 1rem;
 
         .keys {
-            width: 10vh;
-            height: 10vh;
+            width: 15vh;
+            height: 15vh;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -135,8 +136,8 @@ const props = defineProps({
         margin: 0 15px;
 
         .keys {
-            width: 10vh;
-            height: 10vh;
+            width: 15vh;
+            height: 15vh;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -155,11 +156,17 @@ const props = defineProps({
         }
 
         .btn-equals {
-            background-image: url('../assets/images/equals.png');
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
+            color: white;
+            background: linear-gradient(to top right, #FF2107, #5E0A00);
+            width: 100%;
+            height: 70%;
             padding: 0 !important;
+
+            &:hover {
+                background: linear-gradient(to top right, #ff4934, #9b1a0b);
+                /* width: 100%;
+                height: 70%; */
+            }
         }
 
         .keys:hover {
