@@ -136,7 +136,7 @@ const props = defineProps({
         margin: 0 15px;
 
         .keys {
-            width: 15vh;
+            /* width: 15vh; */
             height: 15vh;
             display: flex;
             justify-content: center;
