@@ -179,7 +179,7 @@ header {
   display: flex;
   flex-direction: column;
   width: 40%;
-  min-width: 35em;
+  min-width: 50em;
   margin: 0 auto;
   height: 100%;
   background-color: black;
