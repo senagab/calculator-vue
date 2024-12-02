@@ -40,7 +40,7 @@ const props = defineProps({
             <div @click="props.backspace" class="keys btn btn-backspace" data-key="backspace" style="border: none;">
             </div>
             <div @click="props.limpar" class="keys" data-key="limpar">C</div>
-            <div class="keys btn btn-equals">=</div>
+            <div @click="props.resultado" class="keys btn btn-equals" data-key="resultado">=</div>
         </div>
     </div>
 </template>
@@ -54,6 +54,7 @@ const props = defineProps({
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         column-gap: 1rem;
+        align-items: center;
 
         .keys {
             width: 15vh;
@@ -91,6 +92,7 @@ const props = defineProps({
         display: grid;
         grid-template-columns: 1fr;
         gap: 1rem;
+        align-items: center;
 
         .keys {
             width: 15vh;
@@ -130,6 +132,7 @@ const props = defineProps({
         grid-template-rows: 1fr 1fr 2fr;
         gap: 1rem;
         margin: 0 15px;
+        align-items: center;
 
         .keys {
             /* width: 15vh; */
