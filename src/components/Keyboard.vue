@@ -1,8 +1,5 @@
 <script setup>
 
-// import { defineProps } from 'vue';
-
-// Definindo as funções recebidas como props
 const props = defineProps({
     juntarNumeros: Function,
     ponto: Function,
@@ -43,7 +40,6 @@ const props = defineProps({
             <div @click="props.backspace" class="keys btn btn-backspace" data-key="backspace" style="border: none;">
             </div>
             <div @click="props.limpar" class="keys" data-key="limpar">C</div>
-            <!-- <div @click="props.resultado" class="keys btn btn-equals" data-key="resultado" style="height: 21vh;"></div> -->
             <div class="keys btn btn-equals">=</div>
         </div>
     </div>
