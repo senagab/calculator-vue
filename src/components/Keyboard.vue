@@ -48,17 +48,19 @@ const props = defineProps({
 .keyboard {
     margin: 30px 30px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
+    max-height: 22em;
 
     .keyboard__left {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         column-gap: 1rem;
         align-items: center;
+        justify-content: center;
 
         .keys {
-            width: 15vh;
-            height: 15vh;
+            width: 12vh;
+            height: 12vh;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -93,10 +95,12 @@ const props = defineProps({
         grid-template-columns: 1fr;
         gap: 1rem;
         align-items: center;
+            justify-content: center;
+            align-items: center;
 
         .keys {
-            width: 15vh;
-            height: 15vh;
+            width: 12vh;
+            height: 12vh;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -132,11 +136,12 @@ const props = defineProps({
         grid-template-rows: 1fr 1fr 2fr;
         gap: 1rem;
         margin: 0 15px;
+        justify-content: center;
         align-items: center;
 
         .keys {
-            /* width: 15vh; */
-            height: 15vh;
+            /* width: 12vh; */
+            height: 12vh;
             display: flex;
             justify-content: center;
             align-items: center;
