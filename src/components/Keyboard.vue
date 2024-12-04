@@ -222,8 +222,14 @@ const props = defineProps({
             margin: 0;
 
             .keys-limpar {
-                width: 5vh;
-                height: 5vh;
+                height: 4vh;
+                /* background-color: #ddd;
+                height: 8vh; */
+            }
+
+            .btn-equals {
+                height: 80%;
+                margin-top: -10px;
             }
         }
     }
