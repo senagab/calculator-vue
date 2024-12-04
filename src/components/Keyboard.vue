@@ -133,7 +133,7 @@ const props = defineProps({
     .keyboard__right {
         display: grid;
         grid-template-columns: 50px;
-        grid-template-rows: 1fr 1fr 2fr;
+        grid-template-rows: 1fr 1fr 3fr;
         gap: 1rem;
         margin: 0 15px;
         justify-content: center;
@@ -146,7 +146,7 @@ const props = defineProps({
             justify-content: center;
             align-items: center;
             background-color: black;
-            padding: 30px;
+            padding: 0;
             font-size: 30px;
             color: rgb(138, 138, 138);
         }
@@ -157,19 +157,22 @@ const props = defineProps({
             background-repeat: no-repeat;
             background-size: contain;
             padding: 0 !important;
+
+            &:hover {
+                filter: brightness(120%);
+                background-color: black !important;
+            }
         }
 
         .btn-equals {
             color: white;
             background: linear-gradient(to top right, #FF2107, #5E0A00);
             width: 100%;
-            height: 70%;
+            height: 100%;
             padding: 0 !important;
 
             &:hover {
                 background: linear-gradient(to top right, #ff4934, #9b1a0b);
-                /* width: 100%;
-                height: 70%; */
             }
         }
 
@@ -178,18 +181,21 @@ const props = defineProps({
             cursor: pointer;
         }
 
-        .keys:active {
+        .keys.active {
             background-color: #2b2b2b;
             color: rgb(255, 255, 255);
             font-weight: bold;
             font-size: 25px;
         }
 
-        .keys.active {
-            background-color: #2b2b2b;
-            color: rgb(255, 255, 255);
-            font-weight: bold;
-            font-size: 25px;
+        .keys.active-limpar {
+            filter: brightness(150%);
+            background-color: black !important;
+        }
+
+        .keys.active-resultado {
+            background: linear-gradient(to top right, #ffffff, #888888);
+            color: black;
         }
     }
 }
