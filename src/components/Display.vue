@@ -67,10 +67,14 @@ const props = defineProps({
         
         .display__last-operation {
             font-size: 18px;
+            top: 15px;
+            right: 15px;
         }
 
         .display__text {
             font-size: 4em;
+            bottom: 15px;
+            right: 13px;
         }
     }
 }
