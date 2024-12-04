@@ -66,7 +66,11 @@ const props = defineProps({
         height: 20vh !important;
         
         .display__last-operation {
-            font-size: 12px;
+            font-size: 18px;
+        }
+
+        .display__text {
+            font-size: 4em;
         }
     }
 }
