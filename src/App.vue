@@ -210,10 +210,11 @@ header {
 .container {
   display: flex;
   flex-direction: column;
-  width: 40%;
+  width: 60%;
   min-width: 50em;
   margin: 0 auto;
   height: 100%;
+  min-height: 65em;
   background-color: black;
   border-radius: 5px;
   filter: drop-shadow(3px 3px 0.75rem rgba(255, 255, 255, 0.1));

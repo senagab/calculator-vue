@@ -65,7 +65,7 @@ const props = defineProps({
             justify-content: center;
             align-items: center;
             background-color: black;
-            font-size: 30px;
+            font-size: 45px;
             color: rgb(128, 128, 128);
         }
 
@@ -95,7 +95,7 @@ const props = defineProps({
         grid-template-columns: 1fr;
         align-items: center;
         justify-content: center;
-        margin: 0 25px;
+        margin: 0 30px;
 
         .keys {
             width: 12vh;
@@ -104,7 +104,7 @@ const props = defineProps({
             justify-content: center;
             align-items: center;
             background-color: black;
-            font-size: 30px;
+            font-size: 45px;
             color: rgb(138, 138, 138);
         }
 
@@ -163,12 +163,19 @@ const props = defineProps({
             }
         }
 
+        .keys-limpar {
+            font-size: 45px;
+        }
+
         .btn-equals {
             color: white;
             background: linear-gradient(to top right, #FF2107, #5E0A00);
+            min-width: 100%;
             width: 100%;
+            min-height: 5.5em;
             height: 100%;
             padding: 0 !important;
+            font-size: 45px;
 
             &:hover {
                 background: linear-gradient(to top right, #ff4934, #9b1a0b);
@@ -214,6 +221,7 @@ const props = defineProps({
             .keys {
                 width: 5vh;
                 height: 5vh;
+                font-size: 25px;
                 /* color: red; */
             }
         }
@@ -223,6 +231,7 @@ const props = defineProps({
 
             .keys-limpar {
                 height: 4vh;
+                font-size: 25px;
                 /* background-color: #ddd;
                 height: 8vh; */
             }
@@ -230,6 +239,7 @@ const props = defineProps({
             .btn-equals {
                 height: 80%;
                 margin-top: -10px;
+                font-size: 25px;
             }
         }
     }
