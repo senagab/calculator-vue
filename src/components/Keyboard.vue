@@ -93,9 +93,9 @@ const props = defineProps({
     .keyboard__center {
         display: grid;
         grid-template-columns: 1fr;
-        /* gap: 1rem; */
         align-items: center;
         justify-content: center;
+        margin: 0 30px;
 
         .keys {
             width: 12vh;
@@ -219,7 +219,7 @@ const props = defineProps({
         }
 
         .keyboard__right {
-            
+
             .keys-limpar {
                 width: 7vh;
                 height: 7vh;
