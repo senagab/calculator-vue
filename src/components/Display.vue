@@ -72,7 +72,7 @@ const props = defineProps({
         }
 
         .display__text {
-            width: 4.5em;
+            width: 4em;
             font-size: 4em;
             bottom: 15px;
             right: 13px;

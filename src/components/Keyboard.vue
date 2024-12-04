@@ -212,8 +212,8 @@ const props = defineProps({
         .keyboard__center {
 
             .keys {
-                width: 7vh;
-                height: 7vh;
+                width: 5vh;
+                height: 5vh;
                 /* color: red; */
             }
         }
@@ -222,8 +222,8 @@ const props = defineProps({
             margin: 0;
 
             .keys-limpar {
-                width: 7vh;
-                height: 7vh;
+                width: 5vh;
+                height: 5vh;
             }
         }
     }
