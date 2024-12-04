@@ -219,6 +219,7 @@ const props = defineProps({
         }
 
         .keyboard__right {
+            margin: 0;
 
             .keys-limpar {
                 width: 7vh;
