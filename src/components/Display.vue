@@ -72,6 +72,14 @@ const props = defineProps({
         border-left: solid 6px #E83D2A;
         border-radius: 5px;
         position: relative;
+
+        .display__last-operation {
+            position: absolute;
+            top: 20px;
+            right: 15px;
+            color: rgb(150, 150, 150);
+            font-size: 24px;
+        }
     }
 }
 
