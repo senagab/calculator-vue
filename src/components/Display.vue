@@ -60,5 +60,19 @@ const props = defineProps({
     .display__text:focus {
         outline: none;
     }
+    
+    @media (max-width: 640px) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 20vh;
+        width: auto;
+        background-color: #232323;
+        margin: 30px 30px 0;
+        border-left: solid 6px #E83D2A;
+        border-radius: 5px;
+        position: relative;
+    }
 }
+
 </style>

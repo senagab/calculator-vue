@@ -197,5 +197,20 @@ const props = defineProps({
             color: black;
         }
     }
+
+}
+
+@media (max-width: 640px) {
+
+    .keyboard {
+        margin: 30px 30px;
+        display: flex;
+        justify-content: center;
+        max-height: 22em;
+
+        .keys {
+
+        }
+    }
 }
 </style>

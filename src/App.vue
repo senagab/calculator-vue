@@ -219,4 +219,11 @@ header {
   filter: drop-shadow(3px 3px 0.75rem rgba(255, 255, 255, 0.1));
 }
 
+@media (max-width: 640px) {
+  .container {
+    width: 20%;
+    min-width: 30em;
+  }
+}
+
 </style>
