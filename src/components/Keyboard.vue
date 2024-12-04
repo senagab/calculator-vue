@@ -39,7 +39,7 @@ const props = defineProps({
         <div class="keyboard__right">
             <div @click="props.backspace" class="keys btn btn-backspace" data-key="backspace" style="border: none;">
             </div>
-            <div @click="props.limpar" class="keys" data-key="limpar">C</div>
+            <div @click="props.limpar" class="keys keys-limpar" data-key="limpar">C</div>
             <div @click="props.resultado" class="keys btn btn-equals" data-key="resultado">=</div>
         </div>
     </div>
@@ -208,8 +208,22 @@ const props = defineProps({
         justify-content: center;
         max-height: 22em;
 
-        .keys {
+        .keyboard__left, 
+        .keyboard__center {
 
+            .keys {
+                width: 7vh;
+                height: 7vh;
+                /* color: red; */
+            }
+        }
+
+        .keyboard__right {
+            
+            .keys-limpar {
+                width: 7vh;
+                height: 7vh;
+            }
         }
     }
 }
