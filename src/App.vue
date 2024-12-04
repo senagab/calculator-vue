@@ -221,8 +221,10 @@ header {
 
 @media (max-width: 640px) {
   .container {
+    height: 100%;
+    max-height: 35em;
     width: 20%;
-    min-width: 30em;
+    min-width: 25em;
   }
 }
 

@@ -65,7 +65,7 @@ const props = defineProps({
         display: flex;
         align-items: center;
         justify-content: center;
-        height: 20vh;
+        height: 15vh;
         width: auto;
         background-color: #232323;
         margin: 30px 30px 0;
