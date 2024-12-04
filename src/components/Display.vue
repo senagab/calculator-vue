@@ -62,23 +62,11 @@ const props = defineProps({
     }
     
     @media (max-width: 640px) {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 15vh;
-        width: auto;
-        background-color: #232323;
-        margin: 30px 30px 0;
-        border-left: solid 6px #E83D2A;
-        border-radius: 5px;
-        position: relative;
 
+        height: 20vh !important;
+        
         .display__last-operation {
-            position: absolute;
-            top: 20px;
-            right: 15px;
-            color: rgb(150, 150, 150);
-            font-size: 24px;
+            font-size: 12px;
         }
     }
 }

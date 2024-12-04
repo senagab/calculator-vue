@@ -95,7 +95,7 @@ const props = defineProps({
         grid-template-columns: 1fr;
         align-items: center;
         justify-content: center;
-        margin: 0 30px;
+        margin: 0 25px;
 
         .keys {
             width: 12vh;
