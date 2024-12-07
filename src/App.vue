@@ -212,9 +212,9 @@ header {
   flex-direction: column;
   width: 60%;
   min-width: 50em;
-  margin: 0 auto;
   height: 100%;
-  min-height: 35em;
+  min-height: 30vh;
+  margin: 0 auto 50px;
   background-color: black;
   border-radius: 5px;
   filter: drop-shadow(3px 3px 0.75rem rgba(255, 255, 255, 0.1));
