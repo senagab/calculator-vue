@@ -49,9 +49,9 @@ const props = defineProps({
         /* border: solid 1px white; */
         border: none;
         position: absolute;
-        bottom: 45px;
+        bottom: 0;
         right: 13px;
-        font-size: 8.5em;
+        font-size: 4.5em;
         color: white;
         text-align: right;
         font-weight: 500;
