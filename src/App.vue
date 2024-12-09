@@ -204,7 +204,8 @@ onUnmounted(() => {
 }
 
 header {
-  color: #bdbdbd;
+  color: #525252;
+  text-align: center;
 }
 
 .container {
@@ -213,7 +214,7 @@ header {
   width: 60%;
   min-width: 50em;
   height: 100%;
-  min-height: 75vh;
+  min-height: 70vh;
   margin: 0 auto 50px;
   background-color: black;
   border-radius: 5px;

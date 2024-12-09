@@ -26,7 +26,7 @@ const props = defineProps({
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 20vh;
+    height: 15vh;
     width: auto;
     background-color: #232323;
     margin: 30px 30px 0;
@@ -36,10 +36,10 @@ const props = defineProps({
 
     .display__last-operation {
         position: absolute;
-        top: 15px;
+        top: 25px;
         right: 15px;
         color: rgb(150, 150, 150);
-        font-size: 25px;
+        font-size: 35px;
     }
 
     .display__text {
@@ -49,9 +49,9 @@ const props = defineProps({
         /* border: solid 1px white; */
         border: none;
         position: absolute;
-        bottom: 0;
+        bottom: 25px;
         right: 13px;
-        font-size: 4.5em;
+        font-size: 7em;
         color: white;
         text-align: right;
         font-weight: 500;
