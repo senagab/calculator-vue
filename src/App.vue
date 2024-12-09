@@ -226,7 +226,7 @@ header {
     height: 100%;
     max-height: 35em;
     width: 20%;
-    min-width: 23em;
+    min-width: 20em;
   }
 }
 

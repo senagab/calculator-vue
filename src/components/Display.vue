@@ -64,19 +64,19 @@ const props = defineProps({
     
     @media (max-width: 640px) {
 
-        height: 20vh !important;
+        height: 30vh !important;
         
         .display__last-operation {
-            font-size: 18px;
-            top: 15px;
+            font-size: 15px;
+            top: 10px;
             right: 15px;
         }
 
         .display__text {
             height: 60px;
             width: 4em;
-            font-size: 4em;
-            bottom: 15px;
+            font-size: 3em;
+            bottom: 0px;
             right: 13px;
         }
     }
