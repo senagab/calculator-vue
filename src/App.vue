@@ -213,7 +213,7 @@ header {
   width: 60%;
   min-width: 50em;
   height: 100%;
-  min-height: 30vh;
+  min-height: 75vh;
   margin: 0 auto 50px;
   background-color: black;
   border-radius: 5px;
