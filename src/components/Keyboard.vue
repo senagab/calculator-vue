@@ -200,7 +200,7 @@ const props = defineProps({
         }
 
         .keys.active-resultado {
-            background: linear-gradient(to top right, #ffffff, #888888);
+            background: linear-gradient(to top right, #ff7f70, #ff2e17);
             color: black;
         }
     }
