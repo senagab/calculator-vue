@@ -1,42 +1,48 @@
 <script setup>
+/* Importação dos componentes principais */
 import { reactive, ref, onMounted, onUnmounted } from "vue";
-import Header from './components/Header.vue'
-import Display from './components/Display.vue'
-import Keyboard from './components/Keyboard.vue'
+import Header from './components/Header.vue' // Componente para o cabeçalho da calculadora
+import Display from './components/Display.vue' // Componente para exibição dos valores e histórico
+import Keyboard from './components/Keyboard.vue' // Componente do teclado da calculadora
 
+/* Função para configurar a cor de fundo da página */
 function bgColor() {
   addEventListener("DOMContentLoaded", (event) => {
     document.body.style.backgroundColor = "#1a1a1a";
   });
 }
-
 bgColor();
 
+/* Estado reativo para gerenciar os valores da calculadora */
 const estado = reactive({
-  valorCorrente: "",
-  ultimaOperacao: "",
-  operacaoFinalizada: false,
+  valorCorrente: "", // Valor atual digitado ou em cálculo
+  ultimaOperacao: "", // Última operação realizada
+  operacaoFinalizada: false // Indica se uma operação foi finalizada
 });
 
-const historyDisplay = ref("");
+/* Estado reativo para o display de histórico */
+const historyDisplay = ref(""); // Mostra a última operação completa
 
+/* Função para adicionar números ao valor corrente */
 function juntarNumeros(num) {
   if (estado.operacaoFinalizada) {
-    estado.valorCorrente = "";
+    estado.valorCorrente = ""; // Reseta o valor se uma operação foi finalizada
     estado.operacaoFinalizada = false;
   }
-  estado.valorCorrente += num;
+  estado.valorCorrente += num; // Concatena número
 }
 
+/* Função para adicionar um ponto decimal ao valor corrente */
 function ponto() {
-  const partes = estado.valorCorrente.split(/[\+\-\x\/]/);
+  const partes = estado.valorCorrente.split(/[\+\-\x\/]/); // Separa os números por operadores
   const ultimoNumero = partes[partes.length - 1];
 
-  if (!ultimoNumero.includes(",")) {
+  if (!ultimoNumero.includes(",")) { // Adiciona ponto apenas se não houver outro no número atual
     estado.valorCorrente += ",";
   }
 }
 
+/* Funções para cada operação matemática */
 function somar() {
   adicionarOperador("+");
 }
@@ -50,49 +56,54 @@ function dividir() {
   adicionarOperador("/");
 }
 
+/* Função para adicionar operadores matemáticos */
 function adicionarOperador(operador) {
   if (estado.operacaoFinalizada) {
-    estado.operacaoFinalizada = false;
+    estado.operacaoFinalizada = false; // Reinicia o estado de finalização 
   }
-  const ultimoCaractere = estado.valorCorrente.slice(-1);
+  const ultimoCaractere = estado.valorCorrente.slice(-1); // Último caractere do valor atual
 
   if (["+", "-", "x", "/"].includes(ultimoCaractere)) {
-    estado.valorCorrente = estado.valorCorrente.slice(0, -1) + operador;
+    estado.valorCorrente = estado.valorCorrente.slice(0, -1) + operador; // Substitui operador
   } else {
-    estado.valorCorrente += operador;
+    estado.valorCorrente += operador; // Adicione novo operador
   }
 }
 
+/* Função para calcular o resultado da operação */
 function resultado() {
   try {
-    const expressao = estado.valorCorrente.replace(/,/g, ".").replace(/x/g, "*");
-    const resultado = eval(expressao);
+    const expressao = estado.valorCorrente.replace(/,/g, ".").replace(/x/g, "*"); // Formata expressão
+    const resultado = eval(expressao); // Calcula resultado
 
-    historyDisplay.value = `${estado.valorCorrente}=`;
+    historyDisplay.value = `${estado.valorCorrente}=`; // Atualiza histórico
 
-    estado.valorCorrente = resultado.toString().replace(/\./g, ",");
+    estado.valorCorrente = resultado.toString().replace(/\./g, ","); // Formata resultado
 
-    estado.operacaoFinalizada = true;
+    estado.operacaoFinalizada = true; // Marca operação como finalizada
   } catch (error) {
-    estado.valorCorrente = "Erro";
+    estado.valorCorrente = "Erro"; // Exibe erro se houver problema
   }
 }
 
+/* Função para apagar o último caractere */
 function backspace() {
-  if (estado.operacaoFinalizada) return;
+  if (estado.operacaoFinalizada) return; // Impede edição após finalizar operação
   estado.valorCorrente = estado.valorCorrente.slice(0, -1);
 }
 
+/* Função para limpar tudo */
 function limpar() {
-  estado.valorCorrente = "";
-  historyDisplay.value = "";
+  estado.valorCorrente = ""; // Reseta valor corrente
+  historyDisplay.value = ""; // Reseta o histórico
   estado.operacaoFinalizada = false;
 }
 
+/* Tratamento de eventos de clique nos botões */
 const handleKeyPress = (event) => {
   const { key } = event;
 
-  // Impedir que a ação se repita no clique quando o evento já foi tratado pelo teclado
+  // Impede repetiação contínua da tecla
   if (event.repeat) return;
 
   handleButtonPress(key, "keyboard");
