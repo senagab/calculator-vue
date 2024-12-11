@@ -103,20 +103,22 @@ function limpar() {
 const handleKeyPress = (event) => {
   const { key } = event;
 
-  // Impede repetiação contínua da tecla
+  // Impede repetição contínua da tecla
   if (event.repeat) return;
 
   handleButtonPress(key, "keyboard");
 };
 
+/* Tratamento de eventos de clique nos botões */
 const handleButtonClick = (event) => {
-  const button = event.target.closest("[data-key]");
+  const button = event.target.closest("[data-key]"); // Identifica botão clicado
   if (button) {
     const buttonId = button.getAttribute("data-key");
     handleButtonPress(buttonId, "click");
   }
 };
 
+/* Função para tratar entrada de botões ou teclas */
 const handleButtonPress = (key, inputType) => {
   const keyMap = {
     '0': '0', '1': '1', '2': '2', '3': '3', '4': '4',
@@ -132,21 +134,20 @@ const handleButtonPress = (key, inputType) => {
   if (buttonElement) {
     // Verificar se a ação é para backspace ou resultado, e adicionar as classes corretas
     if (buttonId === 'backspace') {
-      buttonElement.classList.add('active-limpar');
+      buttonElement.classList.add('active-limpar'); // Adiciona estilo ao botão de apagar
     } else if (buttonId === 'resultado') {
-      buttonElement.classList.add('active-resultado');
+      buttonElement.classList.add('active-resultado'); // Adiciona estilo ao botão de resultado
     } else {
-      buttonElement.classList.add('active');
+      buttonElement.classList.add('active'); // Adiciona estilo genérico
     }
 
     // Remover a classe após 100ms, aplicando em ambos os tipos de input (teclado e clique)
     setTimeout(() => buttonElement.classList.remove('active', 'active-limpar', 'active-resultado'), 100);
   }
 
-  // Evitar que um número seja tratado duas vezes ao clicar em um botão
-  if (inputType === "click" && !isNaN(key)) return;
+  if (inputType === "click" && !isNaN(key)) return; // Impede duplicidade no clique
 
-  // Chamadas de funções de acordo com a tecla ou botão pressionado
+  /* Chamadas de funções apropriedas baseadas na entrada */
   if (!isNaN(key)) {
     juntarNumeros(key);
   } else if (key === "," || buttonId === "ponto") {
@@ -168,14 +169,15 @@ const handleButtonPress = (key, inputType) => {
   }
 };
 
+/* Adiciona e remove eventos ao montar e desmontar o componente */
 onMounted(() => {
-  window.addEventListener("keydown", handleKeyPress);
-  document.addEventListener("click", handleButtonClick);
+  window.addEventListener("keydown", handleKeyPress); // Evento de teclado
+  document.addEventListener("click", handleButtonClick); // Evento de clique
 });
 
 onUnmounted(() => {
-  window.removeEventListener("keydown", handleKeyPress);
-  document.removeEventListener("click", handleButtonClick);
+  window.removeEventListener("keydown", handleKeyPress); // Remove evento de teclado
+  document.removeEventListener("click", handleButtonClick); // Remove evento de clique
 });
 
 
