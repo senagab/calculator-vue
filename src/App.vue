@@ -99,6 +99,24 @@ function limpar() {
   estado.operacaoFinalizada = false;
 }
 
+/* Função de raiz quadrada */
+function raizQuadrada() {
+  try {
+    const valorAtual = estado.valorCorrente.replace(",", ".");
+    if (!valorAtual || isNaN(valorAtual)) {
+      estado.valorCorrente = "Erro";
+      return;
+    }
+    const resultado = Math.sqrt(parseFloat(valorAtual));
+    historyDisplay.value = `√${valorAtual}=`; // Atualiza o histórico com a operação
+    estado.valorCorrente = resultado.toString().replace(".", ","); // Atualiza o display com o resultado
+    estado.operacaoFinalizada = true; // Marca a operação como finalizada
+  } catch (error) {
+    estado.valorCorrente = "Erro"; // Exibe erro se houver problema
+  }
+}
+
+
 /* Tratamento de eventos de clique nos botões */
 const handleKeyPress = (event) => {
   const { key } = event;
@@ -125,8 +143,9 @@ const handleButtonPress = (key, inputType) => {
     '5': '5', '6': '6', '7': '7', '8': '8', '9': '9',
     '+': 'somar', '-': 'diminuir', '*': 'multiplicar', '/': 'dividir',
     'Enter': 'resultado', '=': 'resultado', 'Backspace': 'backspace', ',': 'ponto',
-    'Escape': 'limpar'
+    'Escape': 'limpar', 'v': 'raizQuadrada'
   };
+
 
   const buttonId = keyMap[key];
   const buttonElement = document.querySelector(`[data-key="${buttonId}"]`);
@@ -164,6 +183,8 @@ const handleButtonPress = (key, inputType) => {
     multiplicar();
   } else if (key === "/" || buttonId === "dividir") {
     dividir();
+  } else if (key === "v" || buttonId === "raizQuadrada") {
+  raizQuadrada();
   } else if (key === "Escape" || buttonId === "limpar") {
     limpar();
   }
@@ -198,6 +219,7 @@ onUnmounted(() => {
       :dividir="dividir"
       :backspace="backspace"
       :limpar="limpar"
+      :raizQuadrada="raizQuadrada"
       :resultado="resultado"
     />
   </div>

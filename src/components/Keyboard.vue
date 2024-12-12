@@ -10,6 +10,7 @@ const props = defineProps({
     backspace: Function,
     limpar: Function,
     resultado: Function,
+    raizQuadrada: Function
 });
 
 </script>
@@ -28,7 +29,10 @@ const props = defineProps({
             <div @click="props.juntarNumeros(3)" class="keys" data-key="3">3</div>
             <div @click="props.juntarNumeros(0)" class="keys" data-key="0">0</div>
             <div @click="props.ponto" class="keys" style="color: gray;">,</div>
-            <div @click="props.raizQuadrada" class="keys" style="color: gray;">√</div>
+            <!-- <div @click="props.raizQuadrada" class="keys" style="color: gray;">√</div> -->
+            <!-- <div @click="props.raizQuadrada" class="keys" data-key="raizQuadrada" style="color: gray;">√</div> -->
+            <div @click="props.raizQuadrada" class="keys" data-key="raizQuadrada" style="color: gray;">√</div>
+
         </div>
         <div class="keyboard__center">
             <div @click="props.dividir" class="keys keys--div" data-key="dividir">/</div>
