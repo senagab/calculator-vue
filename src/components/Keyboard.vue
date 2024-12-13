@@ -176,7 +176,8 @@ const props = defineProps({
             background: linear-gradient(to top right, #FF2107, #5E0A00);
             min-width: 100%;
             width: 100%;
-            min-height: 2.5em;
+            /* min-height: 2.5em; */
+            min-height: 160px;
             height: 100%;
             padding: 0 !important;
             font-size: 45px;

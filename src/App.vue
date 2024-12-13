@@ -13,6 +13,8 @@ function bgColor() {
 }
 bgColor();
 
+
+
 /* Estado reativo para gerenciar os valores da calculadora */
 const estado = reactive({
   valorCorrente: "", // Valor atual digitado ou em cálculo
