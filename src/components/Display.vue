@@ -36,22 +36,22 @@ const props = defineProps({
 
     .display__last-operation {
         position: absolute;
-        top: 25px;
+        top: 15px;
         right: 15px;
         color: rgb(150, 150, 150);
-        font-size: 35px;
+        font-size: 15px;
     }
 
     .display__text {
         width: 500px;
-        height: 100px;
+        height: 50px;
         background-color: transparent;
         /* border: solid 1px white; */
         border: none;
         position: absolute;
-        bottom: 25px;
+        bottom: 15px;
         right: 13px;
-        font-size: 7em;
+        font-size: 3.5em;
         color: white;
         text-align: right;
         font-weight: 500;
