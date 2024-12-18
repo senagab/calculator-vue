@@ -11,7 +11,7 @@ A **Calc-Vue** é uma aplicação web de calculadora construída com Vue.js, pro
 
 ---
 
-## ✨ Features
+## Features
 
 - **Cálculo em Tempo Real**: Resultados exibidos instantaneamente conforme números e operadores são inseridos.
 - **Histórico de Operações**: Exibe o cálculo completo (e.g., `4x4=`) e mantém as últimas operações realizadas.
@@ -25,7 +25,7 @@ A **Calc-Vue** é uma aplicação web de calculadora construída com Vue.js, pro
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 - **Vue.js (v3.5.12)**: Framework JavaScript para construção de interfaces reativas.
 - **Vite (v5.4.10)**: Ferramenta de build rápida para projetos modernos em JavaScript.
@@ -33,7 +33,7 @@ A **Calc-Vue** é uma aplicação web de calculadora construída com Vue.js, pro
 
 ---
 
-## 🚀 Como Começar
+## Como Começar
 
 ### Pré-requisitos
 
@@ -62,7 +62,7 @@ A **Calc-Vue** é uma aplicação web de calculadora construída com Vue.js, pro
 
 ---
 
-## 🖥️ Como Usar
+## Como Usar
 
 ### Controles
 
@@ -79,14 +79,14 @@ A **Calc-Vue** é uma aplicação web de calculadora construída com Vue.js, pro
 
 ---
 
-## 🌟 Demonstração
+## Demonstração
 
 Caso tenha uma versão publicada, inclua o link:
 [Demo Online](#).
 
 ---
 
-## 🏗️ Estrutura do Projeto
+## Estrutura do Projeto
 
 ### Principais Componentes
 
@@ -106,7 +106,7 @@ Caso tenha uma versão publicada, inclua o link:
 
 ---
 
-## 🧪 Testando a Aplicação
+## Testando a Aplicação
 
 1. Siga os passos de instalação e execução.
 2. Realize operações básicas para validar o funcionamento.
@@ -114,7 +114,7 @@ Caso tenha uma versão publicada, inclua o link:
 
 ---
 
-## 🛠️ Contribuindo
+## Contribuindo
 
 Contribuições são bem-vindas! Siga os passos abaixo:
 
@@ -135,13 +135,13 @@ Contribuições são bem-vindas! Siga os passos abaixo:
 
 ---
 
-## 📜 Licença
+## Licença
 
 Este projeto está licenciado sob a [MIT License](./LICENSE).
 
 ---
 
-## 🙌 Agradecimentos
+## Agradecimentos
 
 - Ícones personalizados para botões e tema.
 - Fonte Inter, disponível via [Google Fonts](https://fonts.google.com/specimen/Inter).
